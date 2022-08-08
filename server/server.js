@@ -18,6 +18,9 @@ const valoradasRoute = require('../routes/valoradasRoute')
 const seriesTvRoute = require('../routes/seriesTvRoute')
 const contenidoCategorias = require('../routes/contenidoCategoriasRoute')
 const containerComentarios = require('../routes/comentariosRoute')
+const userRoutes = require('../routes/usersRoute')
+const loginRoutes = require('../routes/loginRoutes')
+
 
 app.use(cors());
 app.use(morgan("dev"));
@@ -32,6 +35,8 @@ app.use("/peliculasValoradas", valoradasRoute);
 app.use("/peliculasSeriesTv", seriesTvRoute);
 app.use("/contenidoCategorias", contenidoCategorias);
 app.use("/comentarios", containerComentarios);
+app.use('/registro', userRoutes)
+app.use('/login',loginRoutes) 
 
 
 app.listen(port, () => {
