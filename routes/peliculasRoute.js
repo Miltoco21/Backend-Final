@@ -3,11 +3,13 @@ const route = Router();
 const {
   getPeliculas,
   peliculas,
-  getCarousel
+  getCarousel,
+  buscarYEditar
 } = require("../controllers/peliculasController");
 
 route.get("/getPeliculas", peliculas);
 route.get("/", getPeliculas);
 route.get("/getCarousel", getCarousel);
+route.get("/getEdit", buscarYEditar);
 
 module.exports = route;

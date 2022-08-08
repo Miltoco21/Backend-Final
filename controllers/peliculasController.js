@@ -36,10 +36,27 @@ const peliculas = async (req, res) => {
         genero: pelicula.genre_ids,
         descripcion: pelicula.overview,
         imgFondo: `https://image.tmdb.org/t/p/original${pelicula.backdrop_path}`,
+        trailer: pelicula.title,
       });
     });
 
     res.status(200).json("peliculas guardadas");
+  } catch (error) {
+    res.status(404).json(error);
+  }
+};
+const buscarYEditar = async (req, res) => {
+  try {
+    const edit = await Peliculas.findOneAndUpdate(
+      {
+        titulo: "Constantine: The House of Mystery",
+      },
+      {
+        titulo: "Constantine: The House of Mystery",
+        genero: ["Animación", "Fantasía", "Terror", "Acción"],
+      }
+    );
+    res.status(200).json(edit);
   } catch (error) {
     res.status(404).json(error);
   }
@@ -49,4 +66,5 @@ module.exports = {
   getPeliculas,
   peliculas,
   getCarousel,
+  buscarYEditar,
 };
