@@ -4,7 +4,6 @@ const listContenido = Schema({
   id: Number,
   titulo: String,
   fecha: String,
-  genero: [Schema.Types.Mixed],
   descripcion: String,
   categoria: {
     type: String,
