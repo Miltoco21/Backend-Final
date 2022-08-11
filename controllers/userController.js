@@ -1,6 +1,8 @@
 const User = require("../models/userModel");
 const { validationResult } = require("express-validator");
-const  bcrypt  = require('bcrypt');
+
+const bcrypt = require("bcrypt");
+
 
 const getUsers = async (req, res) => {
   try {
@@ -11,15 +13,34 @@ const getUsers = async (req, res) => {
     res.status(404).json(error);
   }
 };
-const deleteuserById = async(req,res)=>{
-  const {id} =  req.params
-  const userDelete =await User.findOneAndDelete(id)
-  res.status(200).json("user eliminado")
-}
 
+const getRoles = async (req, res) => {
+  try {
+    const result = await User.find({role:"admin"});
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(404).json(error);
+  }
+};
+
+const deleteuserById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const userExist = await User.findById(id);
+    if (userExist) {
+      res.status(200).json("Usuario eliminado");
+      const resultado = await User.findByIdAndRemove(id);
+    } else {
+      return res.status(400).json("El usuario no existe");
+    }
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
 
 const createUser = async (req, res) => {
-  const { nombre, apellido,email,password,role } = req.body;
+  const { firstName, lastName, email, password, role } = req.body;
+
 
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -27,6 +48,7 @@ const createUser = async (req, res) => {
   }
 
   try {
+
     const emailExiste = await User.findOne({email})
 
     if (emailExiste) {
@@ -50,11 +72,15 @@ const createUser = async (req, res) => {
   } catch (error) {
     console.log(error),
     res.status(500).send({ message: "Internal Server Error" })
+
   }
 };
 
 module.exports = {
   getUsers,
   createUser,
-  deleteuserById
+
+  deleteuserById,
+  getRoles,
+
 };

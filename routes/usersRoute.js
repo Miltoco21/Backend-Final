@@ -1,14 +1,18 @@
 const { Router } = require('express')
-const route = Router()
-const { getUsers, createUser ,deleteuserById} = require('../controllers/userController')
+const route = Router()<<<<<<< backend-peliculas
+const { getUsers, createUser ,deleteuserById,getRoles} = require('../controllers/userController')
+
 const { body } =require('express-validator')
 const { emailExist } = require('../helpers/validation')
 const { jwtValidation }= require('../middleware/jwtValidation')
 
 
-route.get('/',jwtValidation ,getUsers)
 
-route.delete('/:id',jwtValidation,deleteuserById)
+route.get('/' ,getUsers)
+route.get('/getRoles' ,getRoles)
+route.delete("/userDelete/:id", jwtValidation, deleteuserById);
+
+
 
 route.post('/',
  body('email').not().isEmpty().withMessage("El correo es obligatorio").isEmail().withMessage(

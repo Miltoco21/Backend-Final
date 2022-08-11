@@ -5,5 +5,7 @@ const {login} = require('../controllers/loginController')
 
 route.post('/',login)
 
+route.get('/',login)
+
 
 module.exports = route

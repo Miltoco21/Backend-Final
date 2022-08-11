@@ -5,7 +5,12 @@ const userSchema = Schema({
   apellido: String,
   email: String,
   password: String,
-  role:String
+
+  role: {
+    type: String,
+    default: "Usuario",
+  },
+
 });
 
 module.exports = model("user", userSchema);
