@@ -1,15 +1,19 @@
 const User = require("../models/userModel");
 const { validationResult } = require("express-validator");
+
 const bcrypt = require("bcrypt");
+
 
 const getUsers = async (req, res) => {
   try {
     const result = await User.find({});
     res.status(200).json(result);
+
   } catch (error) {
     res.status(404).json(error);
   }
 };
+
 const getRoles = async (req, res) => {
   try {
     const result = await User.find({role:"admin"});
@@ -37,40 +41,46 @@ const deleteuserById = async (req, res) => {
 const createUser = async (req, res) => {
   const { firstName, lastName, email, password, role } = req.body;
 
+
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
 
   try {
-    const emailExiste = await User.findOne({ email });
+
+    const emailExiste = await User.findOne({email})
 
     if (emailExiste) {
-      return res.status(201).send({ message: "0" });
+    return res.status(201)
+    .send ( { message: "0" })
     }
 
     const user = new User({
-      nombre: firstName,
-      apellido: lastName,
-      email: email,
-      password: password,
-      role: role,
+      nombre,
+      apellido,
+      email,
+      password,
+      role
     });
 
-    const salt = bcrypt.genSaltSync(10);
-    user.password = bcrypt.hashSync(password, salt);
+    const salt = bcrypt.genSaltSync(10)
+    user.password = bcrypt.hashSync(password,salt)
 
     const newUser = await user.save();
-    res.status(201).send({ message: "Usuario Creado" });
+    res.status(201).send({message: "1"} );
   } catch (error) {
     console.log(error),
-      res.status(500).send({ message: "Internal Server Error" });
+    res.status(500).send({ message: "Internal Server Error" })
+
   }
 };
 
 module.exports = {
   getUsers,
   createUser,
+
   deleteuserById,
   getRoles,
+
 };

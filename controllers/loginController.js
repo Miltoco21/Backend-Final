@@ -22,7 +22,9 @@ const login = async(req,res)=>{
       expiresIn: '6000000'
     })
     
+
     return res.status(200).send({ message: 'Login Exitoso',token: token , payload:payload,role:user.role})
+
   } else {
     return res.status(401).send({message:'Usuario o password incorecta'})
   }

@@ -1,3 +1,4 @@
+
 const jwt = require("jsonwebtoken");
 
 //validacion token entrante para proteger rutas , admin page
@@ -20,3 +21,4 @@ const jwtValidation = async (req, res, next) => {
 };
 
 module.exports = { jwtValidation };
+

@@ -5,10 +5,7 @@ require("dotenv/config");
 const morgan = require("morgan");
 const port = process.env.PORT;
 require("../dataBase/connection");
-// const popRoutes = require("../routes/popRoute");
-// const proxRoutes = require("../routes/proxRoute");
-// const mejorRoutes = require("../routes/mejorRoute");
-// const tvRoutes = require("../routes/tvRoute");
+
 const peliculasRoutes = require("../routes/peliculasRoute");
 const peliculaByIdRoute = require("../routes/peliculaByIdRoute");
 const categoriasRoutes = require('../routes/categoriasRoute')
@@ -37,6 +34,7 @@ app.use("/contenidoCategorias", contenidoCategorias);
 app.use("/comentarios", containerComentarios);
 app.use('/registro', userRoutes)
 app.use('/login',loginRoutes) 
+
 
 
 app.listen(port, () => {
