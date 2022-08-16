@@ -9,7 +9,7 @@ const { jwtValidation }= require('../middleware/jwtValidation')
 
 
 route.get('/' ,getUsers)
-route.get('/getRoles' ,getRoles)
+route.get('/getRoles',jwtValidation ,getRoles)
 route.delete("/userDelete/:id", jwtValidation, deleteuserById);
 
 

@@ -21,6 +21,7 @@ const getRoles = async (req, res) => {
   } catch (error) {
     res.status(404).json(error);
   }
+  console.log(getRoles)
 };
 
 const deleteuserById = async (req, res) => {
