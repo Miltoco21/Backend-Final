@@ -3,7 +3,6 @@ const route = Router();
 const {
   getPeliculas,
   peliculas,
-  getCarousel,
 } = require("../controllers/popularesController");
 
 route.get("/getPeliculas", peliculas);

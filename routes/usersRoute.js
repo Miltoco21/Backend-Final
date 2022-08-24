@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const route = Router()<<<<<<< backend-peliculas
+const route = Router()
 const { getUsers, createUser ,deleteuserById,getRoles} = require('../controllers/userController')
 
 const { body } =require('express-validator')

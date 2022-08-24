@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const { ensureAdmin } = require("../middleware/ensureAdmin");
 const { m } = require("framer-motion");
 const route = Router();
 const {
@@ -14,7 +15,7 @@ route.get("/", getPeliculas);
 route.get("/filtrarContenido/:categoria", getContenido);
 route.get("/getFullContenido/:categoria", getFullContenido);
 route.get("/verDetalle/:detalleId", getDetalleContenido);
-route.post("/agregarPelicula", agregarPelicula);
-route.delete("/eliminar/:id", eliminarContenido);
-route.patch("/editarPelicula/:id", editarPelicula);
+route.post("/agregarPelicula", ensureAdmin, agregarPelicula);
+route.delete("/eliminar/:id", ensureAdmin, eliminarContenido);
+route.patch("/editarPelicula/:id", ensureAdmin, editarPelicula);
 module.exports = route;
