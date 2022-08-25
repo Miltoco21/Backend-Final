@@ -1,16 +1,16 @@
 const { Router } = require('express')
 const route = Router()
 const { getUsers, createUser ,deleteuserById,getRoles} = require('../controllers/userController')
-
 const { body } =require('express-validator')
 const { emailExist } = require('../helpers/validation')
 const { jwtValidation }= require('../middleware/jwtValidation')
+const{ ensureAdmin}= require('../middleware/ensureAdmin')
 
 
 
 route.get('/' ,getUsers)
 route.get('/getRoles' ,getRoles)
-route.delete("/userDelete/:id", jwtValidation, deleteuserById);
+route.delete("/userDelete/:id", jwtValidation,ensureAdmin, deleteuserById);
 
 
 
