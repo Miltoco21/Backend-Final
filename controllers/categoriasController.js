@@ -31,7 +31,7 @@ const eliminarCategoria = async (req, res) => {
       res.status(200).json("Categoria eliminada");
       const resultado = await Categoria.findByIdAndRemove(id);
     } else {
-      return res.status(400).json("La categoria no existe");
+      return res.status(400).json("La categoria no existee");
     }
   } catch (error) {
     return res.status(400).json(error);
