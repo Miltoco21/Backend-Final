@@ -1,6 +1,5 @@
 const { Router } = require("express");
 const { ensureAdmin } = require("../middleware/ensureAdmin");
-const { m } = require("framer-motion");
 const route = Router();
 const {
   getPeliculas,
