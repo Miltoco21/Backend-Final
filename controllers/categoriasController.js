@@ -5,7 +5,7 @@ const Categorias = async (req, res) => {
   try {
     res.status(200).json(categorias);
   } catch (error) {
-    res.status(400).json("error");
+    res.status(400).json("errorr");
   }
 };
 
