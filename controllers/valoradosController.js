@@ -31,7 +31,7 @@ const peliculas = async (req, res) => {
       });
     });
 
-    res.status(200).json("peliculas mejores valoradas guardadas");
+    res.status(200).json("peliculas mejores valoradas guardadass");
   } catch (error) {
     res.status(404).json(error);
   }
