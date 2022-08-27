@@ -1,5 +1,6 @@
  //si el usuario ya esta en la base de datos
  const User = require('../models/userModel')
+ const Categoria = require('../models/categoriasModel')
  
 
  const emailExist = async (email)=>{
@@ -11,8 +12,15 @@
    }
    return false
  }
+ const categoriaExiste = async (categoria) => {
+  const categoriaExist = await Categoria.findOne({categoria})
+  if(categoriaExiste){
+      throw new Error ('La categoria ya existe')
+  }
+}
 
 
  module.exports={
-   emailExist
+   emailExist,
+   categoriaExiste
  }
