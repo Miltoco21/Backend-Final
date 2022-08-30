@@ -14,4 +14,6 @@ Este es el backend de la Pagina Stranger Flix, donde se encuentra las rutas,mode
 <h2 align="left">Integrantes:</h2>
  <img src="https://user-images.githubusercontent.com/100243624/187047419-a5287b45-00bb-46a9-a1af-8e6682549048.png" width=115><br><sub>Juan Morales Paredes</sub> <br>(https://github.com/JM2311)
  <img src="https://user-images.githubusercontent.com/100243624/187047498-891add9c-d150-4763-bd7e-02729b5c613a.jpg" width=115><br><sub>Milton Peña Baeza</sub> <br>(https://github.com/Miltoco21)
-
+ <img src="https://user-images.githubusercontent.com/100243624/187533498-270a1810-301f-40c7-bc33-55ac4e090230.png" width=115><br><sub>Flor Di Marco</sub> <br>(https://github.com/FlorDiMarco)
+ <img src="https://user-images.githubusercontent.com/100243624/187533844-c22878b4-123c-489c-98c7-1efe099ad926.jpg" width=115><br><sub>Mario Marquesto</sub> <br>(https://github.com/mariomarquesto)
+ <img src="https://user-images.githubusercontent.com/100243624/187533994-8f439f84-0196-42b6-b236-6c1ef40ed720.png" width=115><br><sub>Leandro Reynoso</sub> <br>(https://github.com/LReyn87)
