@@ -12,9 +12,9 @@
    }
    return false
  }
- const categoriaExiste = async (categoria) => {
-  const categoriaExist = await Categoria.findOne({categoria})
-  if(categoriaExiste){
+ const categoriaExiste = async (name) => {
+  const categoriaExist = await Categoria.findOne({name})
+  if(categoriaExist){
       throw new Error ('La categoria ya existe')
   }
 }
