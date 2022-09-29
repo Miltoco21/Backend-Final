@@ -1,7 +1,9 @@
 const { Schema, model } = require("mongoose");
 
 const listContenido = Schema({
-  id: Number,
+  id: {
+    
+  },
   titulo: String,
   fecha: String,
   descripcion: String,
